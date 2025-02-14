@@ -13,6 +13,7 @@ func main() {
 		log.Fatalf("Can't connect to database: %v", err)
 	}
 	defer db.Close()
+	log.Println("Database created")
 
 	s := server.New(db)
 

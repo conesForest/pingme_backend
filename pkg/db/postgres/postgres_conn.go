@@ -4,12 +4,13 @@ import (
 	"fmt"
 	"time"
 
+	_ "github.com/jackc/pgx/stdlib"
 	"github.com/jmoiron/sqlx"
 )
 
 // TO-DO: move to cfg
 const (
-	host     = "localhost"
+	host     = "postgres"
 	port     = "5432"
 	user     = "user"
 	dbname   = "pingme"
