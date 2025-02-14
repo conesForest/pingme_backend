@@ -1,0 +1,25 @@
+services:
+  pingme-backend:
+    container_name: pingme-backend
+    platform: linux/amd64
+    build:
+      dockerfile: docker/Dockerfile
+      context: ..
+    ports:
+      - 8080:8080
+    depends_on:
+      - postgres
+
+  postgres:
+    container_name: pingme-postgres
+    image: postgres:17.2
+    platform: linux/amd64
+    env_file: dev.env
+    restart: on-failure
+    ports:
+      - 5432:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
